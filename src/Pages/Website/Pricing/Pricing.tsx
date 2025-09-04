@@ -6,63 +6,70 @@ const Pricing = () => {
     {
       name: "Add Money",
       price: "Free",
-      desc: "Access core features like saving and sending money.",
+      desc: "Deposit funds securely and access all basic wallet features at no cost.",
     },
     {
       name: "Withdraw Money",
-      price: "৳20/1000",
-      desc: "Lower cash-out fees and priority support.",
+      price: "৳20 / 1000",
+      desc: "Instant cash-out with transparent service fees and reliable support.",
     },
     {
       name: "Enterprise",
       price: "Custom",
-      desc: "Tailored solutions for businesses and agents.",
+      desc: "Tailored solutions and premium support for businesses and agents.",
     },
   ];
-  
+
   return (
-    <>
-      <div className="bg-background text-foreground min-h-screen pt-24 px-6">
-        <section className="max-w-6xl mx-auto py-16">
-          <motion.h1
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-4xl font-bold text-center mb-12"
-            style={{ color: "var(--primary)" }}
-          >
-            Pricing & Service Fees
-          </motion.h1>
+    <div className="bg-background text-foreground min-h-screen pt-24 px-6">
+      <section className="max-w-6xl mx-auto py-16">
+        {/* Title */}
+        <motion.h1
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-4xl md:text-5xl font-extrabold text-center bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent"
+        >
+          Pricing & Service Fees
+        </motion.h1>
 
-          <p className="text-center text-muted-foreground mb-8">
-            For every 1000 Taka or above cash-out, a service fee of 20 Taka
-            applies. This fee is divided equally between the Agent and the
-            Admin.
-          </p>
+        {/* Subtitle */}
+        <p className="text-center text-lg text-muted-foreground max-w-2xl mx-auto mt-4 mb-14">
+          Enjoy transparent pricing with no hidden charges. Cash-out fees are
+          shared fairly between Agents and Admins, keeping the system balanced
+          and sustainable.
+        </p>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {tiers.map((tier, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.2 }}
-                className="bg-card text-card-foreground p-6 rounded-xl shadow hover:shadow-lg hover:bg-secondary transition text-center"
-              >
+        {/* Cards */}
+        <div className="grid md:grid-cols-3 gap-8">
+          {tiers.map((tier, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.2 }}
+              className="bg-card text-card-foreground p-8 rounded-2xl shadow-md hover:shadow-xl hover:scale-105 transition-transform duration-300 text-center"
+            >
+              <div className="w-16 h-16 flex items-center justify-center rounded-full bg-primary/10 mx-auto mb-6">
                 <DollarSign
-                  className="w-10 h-10 mx-auto mb-4"
+                  className="w-8 h-8"
                   style={{ color: "var(--primary)" }}
                 />
-                <h3 className="text-2xl font-semibold mb-2">{tier.name}</h3>
-                <p className="text-xl mb-2">{tier.price}</p>
-                <p className="text-muted-foreground">{tier.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </section>
-      </div>
-    </>
+              </div>
+              <h3 className="text-2xl font-semibold mb-2">{tier.name}</h3>
+              <p
+                className="text-xl font-bold mb-3"
+                style={{ color: "var(--primary)" }}
+              >
+                {tier.price}
+              </p>
+              <p className="text-muted-foreground">{tier.desc}</p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+    </div>
   );
 };
 

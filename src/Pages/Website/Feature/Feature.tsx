@@ -11,73 +11,79 @@ const Feature = () => {
   const features = [
     {
       title: "Save Money",
-      desc: "Securely save your money in your digital wallet.",
-      icon: <Wallet className="w-10 h-10" style={{ color: "var(--primary)" }} />,
+      desc: "Securely store your savings in a digital wallet with full protection.",
+      icon: Wallet,
     },
     {
       title: "Top-up Money",
-      desc: "Easily top-up your wallet balance from agents.",
-      icon: (
-        <ArrowUpCircle className="w-10 h-10" style={{ color: "var(--primary)" }} />
-      ),
+      desc: "Easily recharge your wallet balance anytime through agents.",
+      icon: ArrowUpCircle,
     },
     {
       title: "Withdraw Money",
-      desc: "Withdraw cash instantly with service charges applied.",
-      icon: (
-        <ArrowDownCircle className="w-10 h-10" style={{ color: "var(--primary)" }} />
-      ),
+      desc: "Instantly withdraw cash with transparent service charges.",
+      icon: ArrowDownCircle,
     },
     {
       title: "Send Money",
-      desc: "Transfer money securely to other users in seconds.",
-      icon: <Send className="w-10 h-10" style={{ color: "var(--primary)" }} />,
+      desc: "Transfer money to other users in seconds, safely and reliably.",
+      icon: Send,
     },
     {
       title: "Agent Services",
-      desc: "Agents can top-up money for users and assist with transactions.",
-      icon: <ShieldCheck className="w-10 h-10" style={{ color: "var(--primary)" }} />,
+      desc: "Agents provide top-up support and assist with secure transactions.",
+      icon: ShieldCheck,
     },
     {
       title: "Service Fees",
-      desc: "For every 1000+ Taka cash-out, a fee of 20 Taka is applied. This fee is shared between the Agent and Admin.",
-      icon: <ShieldCheck className="w-10 h-10" style={{ color: "var(--primary)" }} />,
+      desc: "For every cash-out above 1000 Taka, a 20 Taka fee applies—shared between Agent and Admin.",
+      icon: ShieldCheck,
     },
   ];
 
   return (
-    <>
-      <div className="bg-background text-foreground min-h-screen pt-24 px-6">
-        <section className="max-w-6xl mx-auto py-16">
-          <motion.h1
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-4xl font-bold text-center mb-12"
-            style={{ color: "var(--primary)" }}
-          >
-            Features
-          </motion.h1>
+    <div className="bg-background text-foreground min-h-screen pt-24 px-6">
+      <section className="max-w-6xl mx-auto py-20">
+        {/* Section Title */}
+        <motion.h1
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-4xl md:text-5xl font-extrabold text-center mb-14 bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent"
+        >
+          Features
+        </motion.h1>
+        <p className="text-lg text-muted-foreground text-center max-w-2xl mx-auto mt-4 mb-14">
+          Discover the essential tools that make digital transactions simple,
+          secure, and seamless.
+        </p>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {features.map((f, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.2 }}
-                className="bg-card text-card-foreground p-6 rounded-xl shadow hover:shadow-lg hover:bg-secondary transition"
-              >
-                <div className="mb-4">{f.icon}</div>
-                <h3 className="text-xl font-semibold mb-2">{f.title}</h3>
-                <p className="text-muted-foreground">{f.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </section>
-      </div>
-    </>
+        {/* Features Grid */}
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-10">
+          {features.map((f, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.2 }}
+              className="bg-card text-card-foreground p-8 rounded-2xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+            >
+              {/* Icon */}
+              <div className="flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-6">
+                <f.icon className="w-8 h-8 text-primary" />
+              </div>
+
+              {/* Title */}
+              <h3 className="text-xl font-semibold mb-3">{f.title}</h3>
+
+              {/* Description */}
+              <p className="text-muted-foreground leading-relaxed">{f.desc}</p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+    </div>
   );
 };
 

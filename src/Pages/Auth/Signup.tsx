@@ -9,7 +9,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { Link, useNavigate } from "react-router-dom";
 import { handleApiError } from "@/utils/handleApiError";
 import type { FormValues, InputConfig } from "@/types/InputConfig.type";
-import { Eye, EyeOff } from "lucide-react"; // Import eye icons
+import { Eye, EyeOff } from "lucide-react";
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -24,20 +24,18 @@ const Signup = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [createUser, { isLoading }] = useCreateUserMutation();
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
     const key = e.target.name as keyof FormValues;
     let value = e.target.value;
 
-    if (key === "role") {
-      value = value.toUpperCase();
-    }
+    if (key === "role") value = value.toUpperCase();
 
     setForm({ ...form, [key]: value });
   };
 
-  const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword);
-  };
+  const togglePasswordVisibility = () => setShowPassword(!showPassword);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -68,13 +66,17 @@ const Signup = () => {
   ];
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-black">
-      <Card className="w-full max-w-md bg-transparent shadow-2xl border-2 border-[#E2136E] rounded-xl transition-all duration-300 transform">
-        <CardHeader>
-          <CardTitle className="text-center text-3xl font-extrabold text-[#E2136E]">
+    <div className="flex items-center justify-center min-h-screen bg-background">
+      <Card className="w-full max-w-md bg-card border border-input rounded-2xl shadow-xl p-6">
+        <CardHeader className="text-center">
+          <CardTitle className="text-3xl md:text-4xl font-extrabold text-primary mb-2">
             Create Account
           </CardTitle>
+          <p className="text-muted-foreground text-sm md:text-base">
+            Welcome! Fill in the form to create your account.
+          </p>
         </CardHeader>
+
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-6">
             {inputs.map((input) => {
@@ -86,22 +88,22 @@ const Signup = () => {
                       value={form[input.name]}
                       onChange={handleChange}
                       required
-                      className="w-full p-3 pr-12 rounded-lg bg-white dark:bg-black text-gray-900 dark:text-white border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#E2136E] appearance-none cursor-pointer text-base placeholder-gray-500"
+                      className="w-full p-3 pr-12 rounded-lg bg-background text-foreground border border-input focus:border-primary focus:ring-2 focus:ring-primary appearance-none cursor-pointer text-base placeholder:text-muted-foreground transition"
                     >
-                      <option value="" disabled className="text-gray-500">
+                      <option value="" disabled>
                         {input.placeholder}
                       </option>
                       {input.options.map((opt) => (
                         <option
                           key={opt.value}
                           value={opt.value}
-                          className="bg-white dark:bg-black text-gray-900 dark:text-white"
+                          className="bg-background text-foreground"
                         >
                           {opt.label}
                         </option>
                       ))}
                     </select>
-                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-4 text-[#E2136E]">
+                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-4 text-primary">
                       <svg
                         className="h-6 w-6"
                         xmlns="http://www.w3.org/2000/svg"
@@ -128,12 +130,12 @@ const Signup = () => {
                       value={form[input.name]}
                       onChange={handleChange}
                       required
-                      className="w-full p-3 pr-12 rounded-lg bg-white dark:text-white text-gray-900 border-2 border-gray-300 focus:border-[#E2136E] focus:outline-none focus:ring-2 focus:ring-[#E2136E] text-base placeholder-gray-500"
+                      className="w-full p-3 pr-12 rounded-lg bg-background text-foreground border border-input focus:border-primary focus:ring-2 focus:ring-primary placeholder:text-muted-foreground transition"
                     />
                     <button
                       type="button"
                       onClick={togglePasswordVisibility}
-                      className="absolute inset-y-0 right-0 pr-4 flex items-center text-gray-500 hover:text-[#E2136E] transition-colors duration-200"
+                      className="absolute inset-y-0 right-0 pr-4 flex items-center text-muted-foreground hover:text-primary transition-colors duration-200"
                     >
                       {showPassword ? (
                         <EyeOff className="h-6 w-6" />
@@ -153,25 +155,25 @@ const Signup = () => {
                     value={form[input.name]}
                     onChange={handleChange}
                     required
-                    className="w-full p-3 rounded-lg bg-white dark:text-white text-gray-900 border-2 border-gray-300 focus:border-[#E2136E] focus:outline-none focus:ring-2 focus:ring-[#E2136E] text-base placeholder-gray-500"
+                    className="w-full p-3 rounded-lg bg-background text-foreground border border-input focus:border-primary focus:ring-2 focus:ring-primary placeholder:text-muted-foreground transition"
                   />
                 );
               }
             })}
             <Button
               type="submit"
-              className="w-full py-3 bg-[#E2136E] text-white font-semibold text-lg rounded-lg hover:bg-white hover:text-[#E2136E] transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98] shadow-md hover:shadow-lg"
+              className="w-full py-3 bg-primary text-primary-foreground font-semibold text-lg rounded-lg hover:bg-primary/90 transition-all duration-300 shadow-md"
               disabled={isLoading}
             >
               {isLoading ? "Creating..." : "Sign Up"}
             </Button>
           </form>
 
-          <p className="text-center text-sm text-gray-400 mt-6">
+          <p className="text-center text-sm text-muted-foreground mt-6">
             Already have an account?{" "}
             <Link
               to="/login"
-              className="text-[#E2136E] font-semibold underline hover:text-white transition-colors duration-300"
+              className="text-primary font-semibold underline hover:text-primary/80 transition-colors duration-300"
             >
               Login
             </Link>
