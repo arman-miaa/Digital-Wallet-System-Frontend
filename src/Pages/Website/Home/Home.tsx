@@ -19,7 +19,7 @@ const Home = () => {
       <Navbar />
 
       {/* Hero Section */}
-    
+
       <section
         id="home"
         className="relative h-screen flex items-center justify-center text-center px-4 bg-cover bg-center"
@@ -58,40 +58,70 @@ const Home = () => {
       </section>
 
       {/* Features Section */}
-      <section id="features" className="py-20 max-w-6xl mx-auto px-6">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-          Features
-        </h2>
+      <section
+        id="features"
+        className="py-24 bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-950"
+      >
+        <div className="max-w-6xl mx-auto px-6">
+          <h2 className="text-3xl md:text-5xl font-extrabold text-center mb-14">
+            Powerful <span className="text-primary">Features</span>
+          </h2>
+          <p className="text-lg text-gray-600 dark:text-gray-300 text-center max-w-2xl mx-auto mb-14">
+            Discover the tools that make managing your digital wallet faster,
+            safer, and more convenient than ever.
+          </p>
 
-        <div className="grid md:grid-cols-3 gap-6">
-          {loading ? (
-            <>
-              <SkeletonCard />
-              <SkeletonCard />
-              <SkeletonCard />
-            </>
-          ) : (
-            ["Fast Transactions", "Top Security", "24/7 Access"].map(
-              (feature, i) => (
+          <div className="grid md:grid-cols-3 gap-8">
+            {loading ? (
+              <>
+                <SkeletonCard />
+                <SkeletonCard />
+                <SkeletonCard />
+              </>
+            ) : (
+              [
+                {
+                  title: "Fast Transactions",
+                  desc: "Experience lightning-fast payments and transfers anytime, anywhere.",
+                  icon: "⚡",
+                },
+                {
+                  title: "Top Security",
+                  desc: "Bank-grade encryption and AI monitoring keep your money safe 24/7.",
+                  icon: "🔒",
+                },
+                {
+                  title: "24/7 Access",
+                  desc: "Manage your wallet anytime with seamless cross-device sync.",
+                  icon: "🌍",
+                },
+              ].map((feature, i) => (
                 <motion.div
                   key={i}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.2 }}
-                  className="bg-card text-card-foreground p-6 rounded-2xl shadow-md hover:shadow-xl hover:bg-secondary/80 transition"
+                  transition={{ duration: 0.6, delay: i * 0.2 }}
+                  className="relative group bg-white/70 dark:bg-gray-800/70 backdrop-blur-xl border border-gray-200 dark:border-gray-700 p-8 rounded-3xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all"
                 >
-                  <h3 className="text-xl font-semibold text-primary">
-                    {feature}
+                  {/* Icon */}
+                  <div className="w-16 h-16 flex items-center justify-center rounded-2xl bg-gradient-to-tr from-primary to-blue-500 text-white text-3xl shadow-md group-hover:scale-110 transition-transform">
+                    {feature.icon}
+                  </div>
+
+                  {/* Title */}
+                  <h3 className="text-2xl font-bold mt-6 text-gray-900 dark:text-white">
+                    {feature.title}
                   </h3>
-                  <p className="mt-3 text-muted-foreground leading-snug">
-                    Enjoy {feature.toLowerCase()} with Digital Wallet
-                    Management.
+
+                  {/* Description */}
+                  <p className="mt-4 text-gray-600 dark:text-gray-300 leading-relaxed">
+                    {feature.desc}
                   </p>
                 </motion.div>
-              )
-            )
-          )}
+              ))
+            )}
+          </div>
         </div>
       </section>
     </div>
