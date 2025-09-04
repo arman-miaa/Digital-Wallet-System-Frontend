@@ -1,8 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 @custom-variant dark (&:is(.dark *));
 
+
+button, 
+a, 
+[role="button"], 
+input[type="submit"], 
+input[type="button"] {
+  cursor: pointer;
+}
 
 
 @theme inline {
@@ -122,7 +130,8 @@
   --card: white;
   --card-foreground: black;
 
-  --primary: #E60076;
+  /* --primary: #E60076; */
+  --primary: #002ae6;
   --primary-foreground: white;
 
   --secondary: #f5f5f5;
@@ -131,13 +140,15 @@
   --muted: #f5f5f5;
   --muted-foreground: #666;
 
-  --accent: #E60076;
+  /* --accent: #E60076; */
+  --accent: #0051e6;
   --accent-foreground: white;
 
   --destructive: #e53e3e; 
   --border: #e5e7eb;
   --input: #e5e7eb;
-  --ring: #E60076;
+  /* --ring: #E60076; */
+  --ring: #0400e6;
 }
 
 .dark {
@@ -147,7 +158,8 @@
   --card: #1a1a1a;
   --card-foreground: white;
 
-  --primary: #E60076;
+  /* --primary: #E60076; */
+   --primary: #002ae6;
   --primary-foreground: black;
 
   --secondary: #2a2a2a;
@@ -156,13 +168,15 @@
   --muted: #2a2a2a;
   --muted-foreground: #aaa;
 
-  --accent: #E60076;
+  /* --accent: #E60076; */
+    --accent: #0051e6;
   --accent-foreground: black;
 
   --destructive: #e53e3e;
   --border: #333;
   --input: #333;
-  --ring: #E60076;
+  /* --ring: #E60076; */
+  --ring: #0004e6;
 }
 
 

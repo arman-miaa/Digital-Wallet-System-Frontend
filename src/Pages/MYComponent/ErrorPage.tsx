@@ -1,6 +1,6 @@
 import { Link, useRouteError, isRouteErrorResponse } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Home, RefreshCw, AlertCircle } from "lucide-react";
+import { Home, AlertCircle } from "lucide-react";
 import { Player } from "@lottiefiles/react-lottie-player";
 import { motion } from "framer-motion";
 
@@ -96,25 +96,25 @@ const ErrorPage = () => {
             </Link>
           </Button>
           
-          <Button 
+          {/* <Button 
             variant="link" 
             className="border-border text-foreground hover:bg-secondary"
             onClick={() => window.location.reload()}
           >
             <RefreshCw className="h-4 w-4 mr-2" />
             Try Again
-          </Button>
+          </Button> */}
         </div>
 
         {/* Technical details (for development) */}
-        {import.meta.env.DEV && (
+        {/* {import.meta.env.DEV && (
           <div className="mt-8 p-4 bg-secondary rounded-lg text-left">
             <h3 className="text-sm font-semibold mb-2">Error Details (Development Only):</h3>
             <pre className="text-xs text-muted-foreground overflow-auto">
               {JSON.stringify(error, null, 2)}
             </pre>
           </div>
-        )}
+        )} */}
       </motion.div>
     </div>
   );

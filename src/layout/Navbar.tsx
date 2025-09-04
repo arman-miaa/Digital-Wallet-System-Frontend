@@ -1,11 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import {
-  HouseIcon,
-  InfoIcon,
-  StarIcon,
-  DollarSignIcon,
-  HelpCircleIcon,
-  PhoneIcon,
+
   UserIcon,
   MenuIcon,
   LogOutIcon,
@@ -17,7 +12,7 @@ import { Button } from "@/components/ui/button";
 import {
   NavigationMenu,
   NavigationMenuItem,
-  NavigationMenuLink,
+
   NavigationMenuList,
 } from "@/components/ui/navigation-menu";
 import {
@@ -45,12 +40,12 @@ import { ModeToggle } from "./ModeToggler";
 import { motion } from "framer-motion";
 
 const navigationLinks = [
-  { href: "/", label: "Home", icon: HouseIcon },
-  { href: "/about", label: "About", icon: InfoIcon },
-  { href: "/feature", label: "Feature", icon: StarIcon },
-  { href: "/pricing", label: "Pricing", icon: DollarSignIcon },
-  { href: "/faq", label: "FAQ", icon: HelpCircleIcon },
-  { href: "/contact", label: "Contact", icon: PhoneIcon },
+  { href: "/", label: "Home",  },
+  { href: "/about", label: "About",},
+  { href: "/feature", label: "Feature" },
+  { href: "/pricing", label: "Pricing" },
+  { href: "/faq", label: "FAQ" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export default function Navbar() {
@@ -92,147 +87,39 @@ export default function Navbar() {
             className="text-xl font-bold flex items-center gap-2 relative group"
             style={{ color: "var(--primary)" }}
           >
-            {/* Animated gradient border container */}
-            <motion.div
-              whileHover={{
-                rotate: 5,
-                scale: 1.1,
-              }}
-              transition={{
-                type: "spring",
-                stiffness: 300,
-                damping: 15,
-              }}
-              className="relative p-0.5 rounded-lg bg-gradient-to-r from-primary via-purple-500 to-pink-500 background-animate"
-            >
-              {/* Main logo container */}
-              <motion.div
-                initial={{ scale: 1 }}
-                animate={{
-                  scale: [1, 1.02, 1],
-                  boxShadow: [
-                    "0 0 0px rgba(230, 0, 118, 0)",
-                    "0 0 15px rgba(230, 0, 118, 0.3)",
-                    "0 0 0px rgba(230, 0, 118, 0)",
-                  ],
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  repeatDelay: 5,
-                }}
-                className="w-10 h-10 rounded-md bg-primary flex items-center justify-center text-primary-foreground font-bold relative overflow-hidden"
-              >
-                {/* Subtle background shine effect */}
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"
-                  initial={{ x: "-100%" }}
-                  animate={{ x: "100%" }}
-                  transition={{
-                    duration: 1.5,
-                    repeat: Infinity,
-                    repeatDelay: 3,
-                  }}
-                />
-
-                {/* DW text with subtle bounce */}
-                <motion.span
-                  initial={{ scale: 1 }}
-                  animate={{
-                    scale: [1, 1.05, 1],
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    repeatDelay: 7,
-                  }}
-                  className="relative z-10"
-                >
-                  DW
-                </motion.span>
-              </motion.div>
-            </motion.div>
-
             {/* Text with gradient animation */}
             <motion.span
               className="hidden sm:inline-block bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent"
               initial={{ opacity: 0, x: -10 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.2 }}
-              whileHover={{
-                scale: 1.05,
-                backgroundImage:
-                  "linear-gradient(to right, var(--primary), #9333ea, var(--primary))",
-                transition: { duration: 0.3 },
-              }}
             >
               Digital Wallet
             </motion.span>
 
-            {/* Subtle pulsing dot indicator */}
-            <motion.div
-              className="absolute -top-1 -right-1 w-2 h-2 bg-green-400 rounded-full"
-              initial={{ scale: 0 }}
-              animate={{ scale: [0, 1, 0] }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                repeatDelay: 3,
-              }}
-            />
+
           </Link>
         </motion.div>
 
         {/* Middle: Navigation */}
         <NavigationMenu className="hidden md:flex">
-          <NavigationMenuList className="gap-1">
+          <NavigationMenuList className="gap-6">
             {navigationLinks.map((link, index) => {
-              const Icon = link.icon;
               const isActive = location.pathname === link.href;
 
               return (
                 <NavigationMenuItem key={index}>
-                  <NavigationMenuLink asChild>
-                    <Link
-                      to={link.href}
-                      className={`relative flex items-center gap-2 px-3 py-2 font-medium transition-colors rounded-md ${
-                        isActive
-                          ? "bg-primary text-primary-foreground"
-                          : "text-muted-foreground"
-                      }`}
-                    >
-                      <motion.div
-                        whileHover={{ y: -2 }}
-                        whileTap={{ y: 0 }}
-                        className="flex items-center gap-2"
-                      >
-                        {Icon && (
-                          <Icon
-                            size={16}
-                            className={
-                              isActive
-                                ? "text-primary-foreground"
-                                : "text-muted-foreground"
-                            }
-                          />
-                        )}
-                        {link.label}
-                      </motion.div>
-
-                      {isActive && (
-                        <motion.div
-                          layoutId="navbar-indicator"
-                          className="absolute inset-0 bg-primary rounded-md -z-10"
-                          initial={false}
-                          transition={{
-                            type: "spring",
-                            bounce: 0.2,
-                            duration: 0.6,
-                          }}
-                        />
-                      )}
-                    </Link>
-                  </NavigationMenuLink>
+                  <Link
+                    to={link.href}
+                    className={`relative px-2 py-1 font-medium transition-colors
+              ${
+                isActive
+                  ? "text-primary after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:bg-primary"
+                  : "text-muted-foreground hover:text-foreground hover:after:absolute hover:after:left-0 hover:after:-bottom-1 hover:h-[2px] hover:w-full hover:after:bg-muted-foreground"
+              }`}
+                  >
+                    {link.label}
+                  </Link>
                 </NavigationMenuItem>
               );
             })}
@@ -253,10 +140,7 @@ export default function Navbar() {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <Button
-                    variant="ghost"
-                    className="text-foreground "
-                  >
+                  <Button variant="ghost" className="text-foreground ">
                     Login
                   </Button>
                 </motion.div>
@@ -343,7 +227,6 @@ export default function Navbar() {
             </>
           )}
         </div>
-
         {/* Mobile Menu (Hamburger) */}
         <div className="md:hidden z-20">
           <Popover>
@@ -352,7 +235,7 @@ export default function Navbar() {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="text-foreground hover:text-primary hover:bg-secondary"
+                  className="text-foreground hover:text-primary hover:bg-transparent"
                 >
                   <MenuIcon size={20} />
                 </Button>
@@ -364,88 +247,23 @@ export default function Navbar() {
             >
               <div className="flex flex-col gap-2">
                 {navigationLinks.map((link, index) => {
-                  const Icon = link.icon;
                   const isActive = location.pathname === link.href;
 
                   return (
                     <Link
                       key={index}
                       to={link.href}
-                      className={`flex items-center gap-2 px-3 py-2 transition-colors rounded-md ${
-                        isActive
-                          ? "bg-primary text-primary-foreground"
-                          : "text-foreground hover:text-primary hover:bg-secondary"
-                      }`}
+                      className={`relative px-2 py-1 font-medium transition-colors hover:bg-transparent
+                ${
+                  isActive
+                    ? "text-primary after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:bg-primary"
+                    : "text-muted-foreground hover:text-foreground hover:after:absolute hover:after:left-0 hover:after:-bottom-1 hover:h-[2px] hover:w-full hover:after:bg-muted-foreground"
+                }`}
                     >
-                      {Icon && (
-                        <Icon
-                          size={16}
-                          className={
-                            isActive
-                              ? "text-primary-foreground"
-                              : "text-muted-foreground"
-                          }
-                        />
-                      )}
                       {link.label}
                     </Link>
                   );
                 })}
-
-                <div className="border-t border-border my-2"></div>
-
-                {isLoading ? (
-                  <div className="flex flex-col gap-2 p-2">
-                    <Skeleton className="h-8 w-full rounded-md bg-muted" />
-                    <Skeleton className="h-8 w-full rounded-md bg-muted" />
-                  </div>
-                ) : !isAuthenticated ? (
-                  <div className="flex flex-col gap-2">
-                    <Link to="/login">
-                      <Button
-                        variant="link"
-                        className="w-full border-border hover:bg-secondary"
-                      >
-                        Login
-                      </Button>
-                    </Link>
-                    <Link to="/signup">
-                      <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
-                        Sign Up
-                      </Button>
-                    </Link>
-                    <ModeToggle />
-                  </div>
-                ) : (
-                  <>
-                    <div className="px-3 py-2 text-sm text-muted-foreground">
-                      Signed in as {userData.name}
-                    </div>
-                    <Link
-                      to={getDashboardPath(userData.role)}
-                      className="flex items-center gap-2 px-3 py-2 text-foreground hover:text-primary transition-colors rounded-md hover:bg-secondary"
-                    >
-                      <AlignStartVertical size={16} className="text-muted-foreground" />
-                      Dashboard
-                    </Link>
-                    <Link
-                      to="/wallet"
-                      className="flex items-center gap-2 px-3 py-2 text-foreground hover:text-primary transition-colors rounded-md hover:bg-secondary"
-                    >
-                      <Wallet2Icon size={16} className="text-muted-foreground" />
-                      Wallet
-                    </Link>
-                    <ModeToggle />
-
-                    <button
-                      onClick={handleLogout}
-                      className="flex items-center gap-2 px-3 py-2 text-destructive hover:text-destructive/80 transition-colors rounded-md hover:bg-secondary text-left"
-                    >
-                      <LogOutIcon size={16} className="text-muted-foreground" />
-                      Logout
-                    </button>
-                  </>
-                )}
               </div>
             </PopoverContent>
           </Popover>
