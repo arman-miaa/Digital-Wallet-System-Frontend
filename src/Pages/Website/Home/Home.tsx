@@ -34,7 +34,7 @@ const Home = () => {
             initial={{ opacity: 0, y: -30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: "easeOut" }}
-            className="text-4xl md:text-6xl font-extrabold text-white drop-shadow-lg"
+            className="text-4xl md:text-6xl font-extrabold text-blue-600 drop-shadow-lg"
           >
             Digital Wallet Management
           </motion.h1>
