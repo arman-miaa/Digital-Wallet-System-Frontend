@@ -10,7 +10,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { handleApiError } from "@/utils/handleApiError";
 import type { FormValues, InputConfig } from "@/types/InputConfig.type";
 import { Eye, EyeOff } from "lucide-react";
-
+//
 const Signup = () => {
   const navigate = useNavigate();
   const [form, setForm] = useState<FormValues>({
