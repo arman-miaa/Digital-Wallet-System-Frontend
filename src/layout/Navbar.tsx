@@ -4,7 +4,7 @@ import {
   UserIcon,
   MenuIcon,
   LogOutIcon,
-  Wallet2Icon,
+  // Wallet2Icon,
   AlignStartVertical,
 } from "lucide-react";
 
@@ -208,10 +208,10 @@ export default function Navbar() {
                     asChild
                     className="cursor-pointer focus:bg-secondary focus:text-foreground"
                   >
-                    <Link to="/wallet" className="flex items-center gap-2">
+                    {/* <Link to="/wallet" className="flex items-center gap-2">
                       <Wallet2Icon size={16} />
                       Wallet
-                    </Link>
+                    </Link> */}
                   </DropdownMenuItem>
                   <DropdownMenuSeparator className="bg-border" />
                   <DropdownMenuItem
