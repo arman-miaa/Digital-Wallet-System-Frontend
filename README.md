@@ -1,11 +1,11 @@
+নিশ্চয়! আমি তোমার README ফাইলটি আরও **ক্লিন, প্রফেশনাল, এবং পাঠযোগ্য** করে সাজিয়ে দিচ্ছি। Credentials, links, এবং অন্যান্য তথ্য সুন্দরভাবে সাজানো থাকবে।
+
+````markdown
 # 💳 Digital Wallet Management System - Frontend
 
 > A modern, responsive, and user-friendly frontend application for managing digital wallet operations. Built with React, TypeScript, and a powerful stack of UI libraries.
 
-
 ---
-
-
 
 ## ✨ Features
 
@@ -42,72 +42,79 @@
 
 ### Prerequisites
 
-- **Node.js** (v18 or higher)
-- **npm** or **yarn** or **pnpm**
-- The [Backend API](https://github.com/your-username/backend-digital-wallet) should be running.
+- **Node.js** (v18 or higher)  
+- **npm**, **yarn**, or **pnpm**  
+- The corresponding **Backend API** should be running.
 
 ### Installation
 
-1.  **Clone the repository**
-    ```bash
-    git clone https://github.com/your-username/digital-wallet-frontend.git
-    cd digital-wallet-frontend
-    ```
+1. Clone the repository:
+```bash
+git clone https://github.com/arman-miaa/Digital-Wallet-System-Frontend.git
+cd Digital-Wallet-System-Frontend
+````
 
-2.  **Install dependencies**
-    ```bash
-    npm install
-    # or
-    yarn install
-    # or
-    pnpm install
-    ```
+2. Install dependencies:
 
-3.  **Environment Variables**
-    Create a `.env` file in the root directory based on `.env.example` and configure your backend API URL:
-    ```env
-    VITE_API_BASE_URL=http://localhost:5000/api
-    ```
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+```
 
-4.  **Run the development server**
-    ```bash
-    npm run dev
-    # or
-    yarn dev
-    # or
-    pnpm dev
-    ```
-5.  **Open your browser** and navigate to `http://localhost:5173`
+3. Environment Variables
+   Create a `.env` file based on `.env.example` and set the backend API URL:
 
----
+```env
+VITE_API_BASE_URL=https://digital-wallet-management-system-nine.vercel.app/api
+```
 
-## 📦 Available Scripts
+4. Run the development server:
 
-| Command               | Description                                                           |
-| --------------------- | --------------------------------------------------------------------- |
-| `npm run dev`         | Starts the development server on `http://localhost:5173`              |
-| `npm run build`       | Builds the app for production to the `dist` folder                    |
-| `npm run preview`     | Previews the production build locally                                 |
-| `npm run lint`        | Runs ESLint to analyze code for potential errors                      |
-| `npm run tailwind:init` | Initializes Tailwind CSS configuration (if not already set up)        |
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+```
 
----
-
-## 🏗️ Project Structure
+Open your browser and navigate to `http://localhost:5173`.
 
 ---
 
 ## 🔌 API Integration
 
-This frontend is designed to work seamlessly with the corresponding backend API. Key integrated endpoints include:
+This frontend works seamlessly with the backend API. Key integrated endpoints include:
 
-- **Auth:** Login, Logout, Session Management
-- **User:** Registration (via Admin), Profile Management, View Users/Agents
-- **Wallet:** Check Balance, Add Funds (Agent), Withdraw, Transfer
-- **Transactions:** View Personal and System-wide Transaction History
-- **Commissions:** View Earnings (Agent) and Reports (Admin)
+* **Auth:** Login, Logout, Token Refresh
+* **User:** Registration, Profile Management, User & Agent Listing
+* **Wallet:** Check Balance, Add Funds, Withdraw, Transfer
+* **Transactions:** Personal and System-wide transaction history
+* **Commissions:** Agent earnings and admin reports
 
-Ensure the backend is running and the `VITE_API_BASE_URL` environment variable is correctly set.
+Ensure the backend is running and the `VITE_API_BASE_URL` is correct.
+
+---
+
+## 🌐 Live & Repository Links
+
+* **Frontend Repo:** [GitHub](https://github.com/arman-miaa/Digital-Wallet-System-Frontend)
+* **Frontend Live:** [Netlify](https://digitalwallet3.netlify.app)
+* **Backend Repo:** [GitHub](https://github.com/arman-miaa/Digital-Wallet-Management-System-Server)
+* **Backend Live:** [Vercel](https://digital-wallet-management-system-nine.vercel.app)
+
+---
+
+## 🧪 Test Credentials
+
+| Role  | Email                                         | Password   |
+| ----- | --------------------------------------------- | ---------- |
+| Admin | [admin@example.com](mailto:admin@example.com) | 123456     |
+| Agent | [agent@example.com](mailto:agent@example.com) | @Agent1234 |
+| User  | [user@example.com](mailto:user@example.com)   | @User1234  |
 
 ---
 
@@ -123,19 +130,16 @@ Ensure the backend is running and the `VITE_API_BASE_URL` environment variable i
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ---
 
 ## 🙏 Acknowledgments
 
-- [shadcn/ui](https://ui.shadcn.com/) for the excellent component library.
-- [Vite](https://vitejs.dev/) for the fast build tooling.
-- The creators of all the amazing open-source libraries used in this project.
+* [shadcn/ui](https://ui.shadcn.com/) for the excellent component library
+* [Vite](https://vitejs.dev/) for fast build tooling
+* The creators of all other open-source libraries used in this project
 
 
-## Credentials 
 
-#### agent@example.com => 1234
-#### user1@example.com => 1234
-#### admin@example.com => 1234
+
