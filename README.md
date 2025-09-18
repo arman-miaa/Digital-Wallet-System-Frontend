@@ -2,7 +2,6 @@
 
 > A modern, responsive, and user-friendly frontend application for managing digital wallet operations. Built with React, TypeScript, and a powerful stack of UI libraries.
 
-This is the frontend client for the [Digital Wallet Backend API](https://github.com/your-username/backend-digital-wallet).
 
 ---
 

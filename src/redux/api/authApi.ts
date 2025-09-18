@@ -14,8 +14,10 @@ export const authApi = baseApi.injectEndpoints({
       invalidatesTags: ["Auth"],
     }),
 
-    loginUser: builder.mutation<{data: any; message: string; token: string }, ILogin>
-    ({
+    loginUser: builder.mutation<
+      { data: any; message: string; token: string },
+      ILogin
+    >({
       query: (credentials) => ({
         url: "/auth/login",
         method: "POST",
@@ -23,11 +25,12 @@ export const authApi = baseApi.injectEndpoints({
       }),
       invalidatesTags: ["Auth"],
     }),
-    logoutUser: builder.mutation<{ message: string}, void>({
+    logoutUser: builder.mutation<{ message: string }, void>({
       query: (credentials) => ({
         url: "/auth/logout",
         method: "POST",
         body: credentials,
+      
       }),
       invalidatesTags: ["Auth"],
     }),

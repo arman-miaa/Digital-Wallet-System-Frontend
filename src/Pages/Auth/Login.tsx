@@ -25,7 +25,9 @@ const Login = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const result = await loginUser(form).unwrap();
+         console.log("🔗 Sending login request to:", form);
+         const result = await loginUser(form).unwrap();
+         console.log("✅ Login response:", result);
 
       if (result.token) sessionStorage.setItem("authToken", result.token);
 

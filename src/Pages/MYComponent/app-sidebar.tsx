@@ -14,6 +14,7 @@ import {
 import { Link, useLocation } from "react-router";
 import { getSidebarItems } from "@/utils/getSidebarItems";
 import { useGetMyProfileQuery } from "@/redux/api/userApi";
+import logo from "/public/logo.jpg"
 
 import { FiChevronDown, FiBell, FiList } from "react-icons/fi";
 import { ModeToggle } from "@/layout/ModeToggler";
@@ -44,7 +45,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
     try {
       await logout().unwrap();
       dispatch(authApi.util.resetApiState());
-      toast.error("Logout successfully!");
+      toast.success("Logout successfully!");
     } catch (err) {
       console.error("Failed to logout:", err);
       handleApiError(err);
@@ -68,9 +69,9 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <div className="flex items-center justify-between w-full">
           <Link to="/" className="flex items-center space-x-2">
             <img
-              src="/logo.png" // 👈 replace with your logo path (e.g. /images/logo.png)
+              src={logo}
               alt="WalletApp Logo"
-              className="h-8 w-auto"
+              className="h-10 w-10 rounded-full object-cover"
             />
             <span className="text-xl font-bold text-gray-900 dark:text-white">
               Digital Wallet

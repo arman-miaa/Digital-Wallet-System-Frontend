@@ -61,7 +61,7 @@ export default function Navbar() {
     try {
       await logout().unwrap();
       dispatch(authApi.util.resetApiState());
-      toast.error("Logout successfully!");
+      toast.success("Logout successfully!");
     } catch (err) {
       console.error("Failed to logout:", err);
       handleApiError(err);
