@@ -4,8 +4,8 @@ export const baseApi = createApi({
   reducerPath: "baseApi",
   baseQuery: fetchBaseQuery({
     // baseUrl: "http://localhost:5000/api/v1",
-  
-    baseUrl: "https://digital-wallet-management-system-se.vercel.app/api/v1",
+
+    baseUrl: "https://digital-wallet-management-system-nine.vercel.app/api/v1",
 
     credentials: "include",
   }),
