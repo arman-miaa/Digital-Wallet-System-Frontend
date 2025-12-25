@@ -5,7 +5,7 @@ import Hero from "@/components/home/Hero";
 import HowItWorks from "@/components/home/HowItWorks";
 import RoleBased from "@/components/home/RoleBased";
 import Security from "@/components/home/Security";
-import Statistics from "@/components/home/Statistics";
+// import Statistics from "@/components/home/Statistics";
 import Testimonials from "@/components/home/Testimonials";
 
 import Navbar from "@/layout/Navbar";
@@ -19,7 +19,7 @@ const Home = () => {
 
 
   return (
-    <div className="bg-background text-foreground min-h-screen container mx-auto">
+    <div className="bg-background text-foreground min-h-screen ">
       <Navbar />
 
       <Hero />
@@ -27,7 +27,7 @@ const Home = () => {
       <HowItWorks />
       <RoleBased />
       <Security />
-      <Statistics />
+      {/* <Statistics /> */}
       <Testimonials />
       <CTA />
     
