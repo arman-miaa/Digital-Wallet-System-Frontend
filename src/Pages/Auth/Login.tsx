@@ -9,6 +9,21 @@ import { useLoginUserMutation } from "@/redux/api/authApi";
 import { handleApiError } from "@/utils/handleApiError";
 import { Eye, EyeOff } from "lucide-react";
 
+const TEST_USERS = {
+  admin: {
+    email: "admin@example.com",
+    password: "123456",
+  },
+  agent: {
+    email: "agent@example.com",
+    password: "@Agent1234",
+  },
+  user: {
+    email: "user@example.com",
+    password: "@User1234",
+  },
+};
+
 const Login = () => {
   const navigate = useNavigate();
   const [form, setForm] = useState({ email: "", password: "" });
@@ -22,12 +37,16 @@ const Login = () => {
 
   const togglePasswordVisibility = () => setShowPassword(!showPassword);
 
+  // ✅ Auto-fill test credentials
+  const fillTestUser = (type: keyof typeof TEST_USERS) => {
+    setForm(TEST_USERS[type]);
+ 
+  };
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-         console.log("🔗 Sending login request to:", form);
-         const result = await loginUser(form).unwrap();
-         console.log("✅ Login response:", result);
+      const result = await loginUser(form).unwrap();
 
       if (result.token) sessionStorage.setItem("authToken", result.token);
 
@@ -35,8 +54,8 @@ const Login = () => {
         result?.data?.user?.is_active === "BLOCKED" ||
         result?.data?.user?.is_active === "SUSPEND"
       ) {
-        navigate("/login");
         toast.error(`User is ${result?.data?.user?.is_active}`);
+        navigate("/login");
       } else {
         toast.success("Logged in successfully!");
         navigate("/");
@@ -47,19 +66,51 @@ const Login = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-background">
+    <div className="flex items-center justify-center min-h-screen bg-background px-4">
       <Card className="w-full max-w-md bg-card border border-input rounded-2xl shadow-xl p-6">
         <CardHeader className="text-center">
           <CardTitle className="text-3xl md:text-4xl font-extrabold text-primary mb-2">
             Login
           </CardTitle>
           <p className="text-muted-foreground text-sm md:text-base">
-            Welcome back! Please login to access your account.
+            Welcome back! Login to access your account.
           </p>
         </CardHeader>
 
-        <CardContent>
-          <form onSubmit={handleSubmit} className="space-y-6">
+        <CardContent className="space-y-6">
+          {/* ✅ Test Credentials Buttons */}
+          <div className="space-y-3">
+            <p className="text-sm text-muted-foreground text-center">
+              Quick Login (Test Credentials)
+            </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+              <Button
+                type="button"
+                variant="outline"
+                onClick={() => fillTestUser("admin")}
+              >
+                Admin
+              </Button>
+              <Button
+                type="button"
+                variant="outline"
+                onClick={() => fillTestUser("agent")}
+              >
+                Agent
+              </Button>
+              <Button
+                type="button"
+                variant="outline"
+                onClick={() => fillTestUser("user")}
+              >
+                User
+              </Button>
+            </div>
+          </div>
+
+          {/* Login Form */}
+          <form onSubmit={handleSubmit} className="space-y-5">
             <Input
               type="email"
               placeholder="Email Address"
@@ -67,8 +118,8 @@ const Login = () => {
               value={form.email}
               onChange={handleChange}
               required
-              className="w-full p-3 rounded-lg bg-background text-foreground border border-input focus:border-primary focus:ring-2 focus:ring-primary placeholder:text-muted-foreground transition"
             />
+
             <div className="relative">
               <Input
                 type={showPassword ? "text" : "password"}
@@ -77,35 +128,33 @@ const Login = () => {
                 value={form.password}
                 onChange={handleChange}
                 required
-                className="w-full p-3 pr-12 rounded-lg bg-background text-foreground border border-input focus:border-primary focus:ring-2 focus:ring-primary placeholder:text-muted-foreground transition"
+                className="pr-12"
               />
               <button
                 type="button"
                 onClick={togglePasswordVisibility}
-                className="absolute inset-y-0 right-0 pr-4 flex items-center text-muted-foreground hover:text-primary transition-colors duration-200"
+                className="absolute inset-y-0 right-0 pr-4 flex items-center text-muted-foreground hover:text-primary"
               >
                 {showPassword ? (
-                  <EyeOff className="h-6 w-6" />
+                  <EyeOff className="h-5 w-5" />
                 ) : (
-                  <Eye className="h-6 w-6" />
+                  <Eye className="h-5 w-5" />
                 )}
               </button>
             </div>
+
             <Button
               type="submit"
-              className="w-full py-3 bg-primary text-primary-foreground font-semibold text-lg rounded-lg hover:bg-primary/90 transition-all duration-300 shadow-md"
+              className="w-full py-3 text-lg"
               disabled={isLoading}
             >
               {isLoading ? "Logging in..." : "Login"}
             </Button>
           </form>
 
-          <p className="text-center text-sm text-muted-foreground mt-6">
+          <p className="text-center text-sm text-muted-foreground">
             Don’t have an account?{" "}
-            <Link
-              to="/signup"
-              className="text-primary font-semibold underline hover:text-primary/80 transition-colors duration-300"
-            >
+            <Link to="/signup" className="text-primary font-semibold underline">
               Sign Up
             </Link>
           </p>
