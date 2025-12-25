@@ -32,68 +32,14 @@ export default function Footer() {
 
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:col-span-2 lg:grid-cols-4">
             <div>
-              <p className="font-medium text-foreground">Features</p>
+              <p className="font-medium text-foreground">Product</p>
               <ul className="mt-6 space-y-4 text-sm">
-                <li>
-                  <a
-                    href="#"
-                    className="text-muted-foreground transition hover:text-primary"
-                  >
-                    Wallet Management
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="text-muted-foreground transition hover:text-primary"
-                  >
-                    Transaction History
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="text-muted-foreground transition hover:text-primary"
-                  >
-                    Money Transfer
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="text-muted-foreground transition hover:text-primary"
-                  >
-                    Role-Based Dashboard
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="text-muted-foreground transition hover:text-primary"
-                  >
-                    Secure Authentication
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <p className="font-medium text-foreground">Quick Links</p>
-              <ul className="mt-6 space-y-4 text-sm">
-                <li>
-                  <Link
-                    to="/about"
-                    className="text-muted-foreground transition hover:text-primary"
-                  >
-                    About
-                  </Link>
-                </li>
                 <li>
                   <Link
                     to="/feature"
                     className="text-muted-foreground transition hover:text-primary"
                   >
-                    Feature
+                    Feture
                   </Link>
                 </li>
                 <li>
@@ -106,6 +52,29 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link
+                    to="/contact"
+                    className="text-muted-foreground transition hover:text-primary"
+                  >
+                    Contact
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <p className="font-medium text-foreground">Company</p>
+              <ul className="mt-6 space-y-4 text-sm">
+                <li>
+                  <Link
+                    to="/about"
+                    className="text-muted-foreground transition hover:text-primary"
+                  >
+                    About
+                  </Link>
+                </li>
+
+                <li>
+                  <Link
                     to="/faq"
                     className="text-muted-foreground transition hover:text-primary"
                   >
@@ -114,10 +83,10 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link
-                    to="/contact"
+                    to="/"
                     className="text-muted-foreground transition hover:text-primary"
                   >
-                    Contack
+                    Home
                   </Link>
                 </li>
               </ul>
@@ -168,31 +137,11 @@ export default function Footer() {
         </div>
 
         <div className="pt-8 mt-8 border-t border-border">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-sm text-muted-foreground">
-              &copy; {currentYear} Digital Wallet Management System. All rights
+          <div className="flex justify-center items-center">
+            <p className="text-sm text-muted-foreground text-center">
+              © {currentYear} Digital Wallet Management System. All rights
               reserved.
             </p>
-            <div className="flex mt-4 md:mt-0 space-x-6">
-              <a
-                href="#"
-                className="text-sm text-muted-foreground transition hover:text-primary"
-              >
-                Terms
-              </a>
-              <a
-                href="#"
-                className="text-sm text-muted-foreground transition hover:text-primary"
-              >
-                Privacy
-              </a>
-              <a
-                href="#"
-                className="text-sm text-muted-foreground transition hover:text-primary"
-              >
-                Cookies
-              </a>
-            </div>
           </div>
         </div>
       </div>

@@ -1,6 +1,6 @@
 import CTA from "@/components/home/CtaSection";
 import Features from "@/components/home/Features";
-import Footer from "@/components/home/Footer";
+
 import Hero from "@/components/home/Hero";
 import HowItWorks from "@/components/home/HowItWorks";
 import RoleBased from "@/components/home/RoleBased";
@@ -19,7 +19,7 @@ const Home = () => {
 
 
   return (
-    <div className="bg-background text-foreground min-h-screen">
+    <div className="bg-background text-foreground min-h-screen container mx-auto">
       <Navbar />
 
       <Hero />
@@ -30,7 +30,7 @@ const Home = () => {
       <Statistics />
       <Testimonials />
       <CTA />
-     <Footer/>
+    
     </div>
   );
 };
